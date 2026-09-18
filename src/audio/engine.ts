@@ -72,7 +72,11 @@ export class PianoEngine {
     if (cached) return cached
     const promise = (async () => {
       const instrument = getInstrument(id)
-      await Promise.all([loadScript(playerUrl), loadScript(`/soundfonts/${instrument.file}.js`)])
+      // `BASE_URL` includes the repository prefix on GitHub Pages (for example
+      // `/piano/`). Dynamic script URLs do not get rewritten by Vite, so keep
+      // the same base as the bundled player and the rest of the public assets.
+      const soundfontUrl = `${import.meta.env.BASE_URL}soundfonts/${instrument.file}.js`
+      await Promise.all([loadScript(playerUrl), loadScript(soundfontUrl)])
       if (!window.WebAudioFontPlayer) throw new Error('播放器加载失败')
       this.player ??= new window.WebAudioFontPlayer()
       const preset = (window as unknown as Record<string, Preset>)[`_tone_${instrument.file}`]
