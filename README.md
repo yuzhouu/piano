@@ -24,6 +24,14 @@ pnpm preview     # 预览 dist
 pnpm format      # Prettier 格式化
 ```
 
+## 部署到 GitHub Pages
+
+仓库已配置 `.github/workflows/deploy-pages.yml`。将 `main` 分支推送到 GitHub 后，Actions 会自动构建并发布到 GitHub Pages；也可以在 Actions 页面手动运行 `Deploy to GitHub Pages`。
+
+首次使用时，在仓库的 **Settings → Pages → Build and deployment** 中将 **Source** 设置为 **GitHub Actions**。部署完成后，项目站点地址为 `https://yuzhouu.github.io/piano/`。
+
+工作流会根据 `GITHUB_REPOSITORY` 自动设置 Vite 的项目路径，同时生成 SPA 的 `404.html` 回退页，保证 GitHub Pages 上的资源加载和客户端路由正常工作。
+
 ### 采样音色
 
 项目把音色文件放在 `public/soundfonts`，首次初始化或需要更新时运行：

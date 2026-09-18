@@ -6,7 +6,18 @@ import viteReact from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import { VitePWA } from 'vite-plugin-pwa'
 
+// GitHub Pages project sites are served below `/<repository>/`.
+// Keep local development at `/`, while deriving the deployed path from the
+// repository name so forks can use the same workflow without code changes.
+const repositoryName = process.env.GITHUB_REPOSITORY?.split('/')[1]
+const isProjectPagesSite =
+  process.env.GITHUB_ACTIONS === 'true' &&
+  !!repositoryName &&
+  !repositoryName.endsWith('.github.io')
+const base = isProjectPagesSite ? `/${repositoryName}/` : '/'
+
 const config = defineConfig({
+  base,
   resolve: { tsconfigPaths: true },
   plugins: [
     tailwindcss(),
@@ -19,16 +30,16 @@ const config = defineConfig({
         name: '小小钢琴家', short_name: '小小钢琴家', lang: 'zh-CN',
         description: '给好奇的小手指，一个自由演奏的音乐空间。',
         theme_color: '#285548', background_color: '#faf9f5',
-        display: 'standalone', start_url: '/', scope: '/',
+        display: 'standalone', start_url: base, scope: base,
         icons: [
-          { src: '/icons/piano-192.png', sizes: '192x192', type: 'image/png' },
-          { src: '/icons/piano-512.png', sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
+          { src: `${base}icons/piano-192.png`, sizes: '192x192', type: 'image/png' },
+          { src: `${base}icons/piano-512.png`, sizes: '512x512', type: 'image/png', purpose: 'any maskable' },
         ],
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
         maximumFileSizeToCacheInBytes: 12 * 1024 * 1024,
-        navigateFallback: '/index.html',
+        navigateFallback: `${base}index.html`,
       },
     }),
   ],
