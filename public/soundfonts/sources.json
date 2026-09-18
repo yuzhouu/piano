@@ -1,0 +1,29 @@
+{
+  "revision": "23ca907d4370a04fd89ca483a92915e4d6159ab9",
+  "instruments": [
+    {
+      "file": "0000_GeneralUserGS_sf2_file.js",
+      "url": "https://raw.githubusercontent.com/surikov/webaudiofontdata/23ca907d4370a04fd89ca483a92915e4d6159ab9/sound/0000_GeneralUserGS_sf2_file.js",
+      "bytes": 956580,
+      "sha256": "a65933733789ed186cdf4850b6edc82695c5e803034edbe8a8b08b9cbd9ea139"
+    },
+    {
+      "file": "0100_GeneralUserGS_sf2_file.js",
+      "url": "https://raw.githubusercontent.com/surikov/webaudiofontdata/23ca907d4370a04fd89ca483a92915e4d6159ab9/sound/0100_GeneralUserGS_sf2_file.js",
+      "bytes": 45691,
+      "sha256": "fbb1e29e53530035ebe5f4289d6b3ff0e9f88f58d6e24b4b0500effbd77535f0"
+    },
+    {
+      "file": "0130_GeneralUserGS_sf2_file.js",
+      "url": "https://raw.githubusercontent.com/surikov/webaudiofontdata/23ca907d4370a04fd89ca483a92915e4d6159ab9/sound/0130_GeneralUserGS_sf2_file.js",
+      "bytes": 24398,
+      "sha256": "89771bb37f4203f986bda796e147adc72e5ba1fedb9f0c0d44359b7c5c8c6302"
+    },
+    {
+      "file": "0240_GeneralUserGS_sf2_file.js",
+      "url": "https://raw.githubusercontent.com/surikov/webaudiofontdata/23ca907d4370a04fd89ca483a92915e4d6159ab9/sound/0240_GeneralUserGS_sf2_file.js",
+      "bytes": 120925,
+      "sha256": "c8d40d0f256b9a6f391c2d0e0cced437b0dd75f04c3cbcdb854e805cee27f850"
+    }
+  ]
+}
